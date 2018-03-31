@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>INDORAHI.COM</title>
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <img src="{% static 'img/rahi-logo.jpeg'%}" width="50" height="50" alt="">
+        <h3 class="d-inline align-middle logo-txt">
+          <span class="logo-inner-txt">INDO</span>RAHI</h3>
+      </a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Buses</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a href="#authors" class="nav-link">Holiday Packages</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link active">Movies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% block content%}
+  {% endblock%}
+  <div>
+    {%block section%}
+    {%endblock%}
+  </div>
+  <script src="{% static 'js/vendor/jquery.min.js' %}"></script>
+  <script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>
+</body>
+
+</html>

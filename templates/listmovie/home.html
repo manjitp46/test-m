@@ -1,0 +1,47 @@
+{%extends 'base1.html'%}
+{% load staticfiles %}
+
+{%block section%}
+      <section id="contact" class="py-3">
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h6>LANGUAGE</h6>
+                <p>
+                <input type="checkbox" /> All</p>
+                <p>
+                {%for language in languages%}
+                  <p>
+                    <input type="checkbox" /> {{language}}</p>
+                  <p>
+                      {%endfor%}
+              <hr/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+            <!--Card Box Startted-->
+            {% for movie in movies %}
+            {%for m in movie%}
+         <div class="card movie-box">
+             <div class="card-header">
+                 <img class="card-img-top" src="{{ m.poster.url}}" width="90%" height="150px" alt="Card image">
+             </div>
+            <div class="card-body">
+            <h4 class="card-title">{{m.name}}</h4>
+            <p class="card-text">{{m.language}}</p>
+            <p class="card-text">{{m.duration}} hrs</p>
+            </div>
+             <div class="card-footer">
+                 <a href="{%url 'list_theatre' m.id city_id%}" class="btn btn-primary">Book Now</a>
+             </div>
+        </div>
+            {%endfor%}
+            {%endfor%}
+            <!--Card area ended-->
+        </div>
+      </div>
+  </section>
+{%endblock%}

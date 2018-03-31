@@ -1,0 +1,126 @@
+{%extends 'base1.html'%}
+{% block section%}
+    <section id="contact" class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="card p-2">
+            <table class="table table-responsive">
+              <tbody>
+              {%for t in theatres%}
+                <tr>
+                  <td>
+                    <p>{{t.name}}:
+                        {{t.address}}
+                    </p>
+                  </td>
+                   
+                  <td>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                      Select Seats
+                    </button>
+                  </td>
+                </tr>
+              {%endfor%}
+                <tr>
+                  <td scope="row">2</td>
+                  <td>Jai Mata Dee
+                    <br/>
+                    <span> AC, Seater Sleeper</span>
+                  </td>
+                  <td>16:00</td>
+                  <td>11:00</td>
+                  <td>19h</td>
+                  <td>60 Seats</td>
+                  <td>
+                    <i class="fa fa-inr"></i>1349/-</td>
+                  <td>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                      Select Seats
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Jai Mata Dee</td>
+                  <td>16:00</td>
+                  <td>11:00</td>
+                  <td>19h</td>
+                  <td>60 Seats</td>
+                  <td>
+                    <i class="fa fa-inr"></i>1349/-</td>
+                  <td>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                      Select Seats
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row">4</td>
+                  <td>Jai Mata Dee</td>
+                  <td>16:00</td>
+                  <td>11:00</td>
+                  <td>19h</td>
+                  <td>60 Seats</td>
+                  <td>
+                    <i class="fa fa-inr"></i>1349/-</td>
+                  <td>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                      Select Seats
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row">5</td>
+                  <td>Jai Mata Dee</td>
+                  <td>16:00</td>
+                  <td>11:00</td>
+                  <td>19h</td>
+                  <td>60 Seats</td>
+                  <td>
+                    <i class="fa fa-inr"></i>1349/-</td>
+                  <td>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                      Select Seats
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="row">6</td>
+                  <td>Jai Mata Dee</td>
+                  <td>16:00</td>
+                  <td>11:00</td>
+                  <td>19h</td>
+                  <td>60 Seats</td>
+                  <td>
+                    <i class="fa fa-inr"></i>1349/-</td>
+                  <td>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                      Select Seats
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row">7</td>
+                  <td>Jai Mata Dee</td>
+                  <td>16:00</td>
+                  <td>11:00</td>
+                  <td>19h</td>
+                  <td>60 Seats</td>
+                  <td>
+                    <i class="fa fa-inr"></i>1349/-</td>
+                  <td>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                      Select Seats
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{%endblock section%}
