@@ -23,3 +23,9 @@ class MovieShowSerializer(serializers.ModelSerializer):
     class Meta:
         model = MovieShow
         fields =  '__all__'        
+
+class ReservationSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(source='user_id') 
+    class Meta:
+        model = Reservation
+        fields =  ('username',)        

@@ -48,6 +48,7 @@ class Theatre(models.Model):
     seating_arrangement = models.TextField(max_length=2000, null=True)
     city_id = models.ForeignKey(City, on_delete=models.CASCADE)
     movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    seating_category = models.ManyToManyField(SeatingCategory, default=None)
     
     def __str__(self):
         return "{0} {1}".format(self.name, self.city_id)
@@ -93,14 +94,21 @@ class Seat(models.Model):
 #
 class ReservationType(models.Model):
     type = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.type
 #
 #
 class Reservation(models.Model):
+    no_of_seats_booked = models.IntegerField(default=0)
     movie_show_id = models.ForeignKey(MovieShow, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     reservation_type_id = models.ForeignKey(ReservationType, on_delete=models.CASCADE)
-
+    seat_id = models.ManyToManyField(Seat)
+    
+    def __str__(self):
+        return "{} {} {} {}".format(self.no_of_seats_booked, self.movie_show_id, self.user_id, self.reservation_type_id)
 class SeatReserved(models.Model):
-    seat_id = models.ForeignKey(Seat, on_delete=models.CASCADE)
+    seat_id = models.ManyToManyField(Seat)
     reservation_id = models.ForeignKey(Reservation, on_delete=models.CASCADE)
-    screening_id = models.ForeignKey(Screening, on_delete=models.CASCADE)
+#     screening_id = models.ForeignKey(MovieShow, on_delete=models.CASCADE)

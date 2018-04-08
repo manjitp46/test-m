@@ -72,5 +72,9 @@ class MovieShowViewSet(viewsets.ModelViewSet):
         else:
             return MovieShow.objects.all()
         
+    
+class ReservationViewSet(viewsets.ModelViewSet):
+    queryset = Reservation.objects.all()
+    serializer_class = ReservationSerializer    
         
        
