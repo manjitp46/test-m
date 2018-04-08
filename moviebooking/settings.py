@@ -35,7 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'listmovie'
+    'rest_framework_swagger',
+    'listmovie',
+    'rest_framework',
+    'restapi',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +69,14 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
+    ]
+}
+
 WSGI_APPLICATION = 'moviebooking.wsgi.application'
 
 # Database
@@ -85,7 +96,7 @@ DATABASES = {
 #         'NAME': 'movie_data',
 #         'USER': 'root',
 #         'PASSWORD': 'root',
-#         'HOST': '192.168.43.47',
+#         'HOST': '192.168.1.21',
 #         'PORT': '3306',
 #     }
 # }
@@ -135,3 +146,5 @@ STATICFILES_DIRS = [
 # for accessing image in website
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image')
 MEDIA_URL = '/image/'
+
+LOGIN_REDIRECT_URL = '/'

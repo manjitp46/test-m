@@ -24,21 +24,19 @@
         <div class="col-md-9">
             <!--Card Box Startted-->
             {% for movie in movies %}
-            {%for m in movie%}
          <div class="card movie-box">
              <div class="card-header">
-                 <img class="card-img-top" src="{{ m.poster.url}}" width="90%" height="150px" alt="Card image">
+                 <img class="card-img-top" src="{{ movie.poster.url}}" width="90%" height="150px" alt="Card image">
              </div>
             <div class="card-body">
-            <h4 class="card-title">{{m.name}}</h4>
-            <p class="card-text">{{m.language}}</p>
-            <p class="card-text">{{m.duration}} hrs</p>
+            <h4 class="card-title">{{movie.name}}</h4>
+            <p class="card-text">{{movie.language}}</p>
+            <p class="card-text">{{movie.duration}} hrs</p>
             </div>
              <div class="card-footer">
-                 <a href="{%url 'list_theatre' m.id city_id%}" class="btn btn-primary">Book Now</a>
+                 <a href="{%url 'list_theatre' movie.id city_id%}" class="btn btn-primary">Book Now</a>
              </div>
         </div>
-            {%endfor%}
             {%endfor%}
             <!--Card area ended-->
         </div>

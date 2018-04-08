@@ -20,5 +20,6 @@ from .settings import MEDIA_ROOT, MEDIA_URL
 from django.conf.urls.static import static
 urlpatterns = [
     url('^admin/', admin.site.urls),
-    url(r'^listmovie/', include("listmovie.urls"))
+    url(r'^listmovie/', include("listmovie.urls")),
+    url(r'^api/', include("restapi.urls")),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)

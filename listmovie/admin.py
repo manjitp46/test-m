@@ -5,7 +5,7 @@ from .models import *
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "description", "cast","poster", "list_display_movie")
+    list_display = ("id", "name", "description", "cast","poster", "language")
     # list_editable = ("name", "description", "cast", "city_id")
 
 
@@ -20,11 +20,13 @@ class TheatreAdmin(admin.ModelAdmin):
 
 
 @admin.register(Language)
-class TheatreAdmin(admin.ModelAdmin):
+class LanguageAdmin(admin.ModelAdmin):
     list_display = ("name",)
 
-# admin.site.register(Auditorium)
-# admin.site.register(Screening)
+admin.site.register(Seat)
+admin.site.register(MovieShow)
+admin.site.register(Screening)
+admin.site.register(SeatingCategory)
 # admin.site.register(Seat)
 # admin.site.register(ReservationType)
 # admin.site.register(Reservation)

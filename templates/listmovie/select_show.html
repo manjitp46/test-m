@@ -1,0 +1,30 @@
+{%extends 'base1.html'%}
+{%block section%}
+<section id="contact" class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="card p-2">
+            <table class="table table-responsive">
+              <tbody>
+              {%for theatre_time in theatre_with_screening%}
+                <tr>
+                  <td>
+                    <p>:
+                    </p>
+                  </td>
+                  <td>
+                    <a href="{%url 'select_seat' movie_id theatre_id%}" class="btn btn-danger">
+                      {{theatre_time.screening_start}}
+                    </a>
+                  </td>
+                </tr>
+              {%endfor%}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{%endblock section%}
