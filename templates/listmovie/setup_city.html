@@ -1,0 +1,31 @@
+{%extends 'base1.html'%}
+{% load staticfiles %}
+{%block popup%}
+ <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      	<form method="post" action="index">
+      	{% csrf_token %}
+      	<div class="form-group">
+		  <label for="sel1">Select list:</label>
+		  <select class="form-control" name="city_id" id="city">
+		  <option value="-1" selected="true">Select one City</option>
+		    {% for city in city_list %}
+       		<option value="{{city.id}}">{{city.name}}</option>
+      		 {%endfor%}
+		  </select>
+		  </div>
+		  <button type="submit" class="btn btn-primary" onclick="submitCity({{city.id}})">Select City</button>
+		</form>
+		</div>
+      </div>
+    </div>
+
+  </div>
+
+ {%endblock%} 

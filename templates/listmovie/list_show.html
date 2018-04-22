@@ -1,0 +1,35 @@
+{%extends 'base1.html'%}
+{%block content%}
+<div class="container">
+<div id="date-container active" style="width: 680px;">
+	<a class="btn btn-primary active">{{current_day}} Today</a>
+</div>
+</div>
+<br>
+<div class="container">
+<div class="conatiner">
+<h1>{{movie_name}}</h1>
+</div>
+<div class="venue-list">
+
+<table class="table table-hover">
+<tbody>
+	{%for k,v in theatre_show_time.items%}
+  <tr>
+ <td>
+  <span>{{k.name}}: {{k.address}} </span>
+  </td>
+  <td>
+  <span>
+	{% for show_time in v%}
+  <a class='btn btn-default' href="{%url 'select_seat' movie_id k.id show_time.id%}">{{show_time.show_start}}</a>
+	{%endfor%}
+   </span>
+  </td>
+  </tr>
+  {%endfor%}
+  </tbody>
+</table>
+</div>
+</div>
+{%endblock%}

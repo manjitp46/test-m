@@ -14,6 +14,9 @@ def get_all_screening(movie_id, theatre_id):
     theatre_with_screening = Screening.objects.filter(theatre_id=theatre_id, movie_id=movie_id)
     return theatre_with_screening
 
+def verify_seat_price():
+    pass
+
 
 # def check_if_movie_is_already_in_set(movies_list, movie):
 #     if len(movies_list) is 0:

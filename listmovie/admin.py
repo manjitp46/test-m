@@ -9,6 +9,19 @@ class MovieAdmin(admin.ModelAdmin):
     # list_editable = ("name", "description", "cast", "city_id")
 
 
+@admin.register(Reservation)
+class Reservation(admin.ModelAdmin):
+    list_display = ('id', 'no_of_seats_booked', 'movie_show_id',
+                     'email', 'reservation_type_id',
+                      'reservation_booking_date', 'movie_show_date',
+                      'movie_show_date', 'tranction_id', 'amount', 'payment_status')
+
+
+@admin.register(Seat)
+class CityAdmin(admin.ModelAdmin):
+    list_display = ("id", "seat_code", 'theatre_id')
+
+
 @admin.register(City)
 class CityAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
@@ -23,12 +36,10 @@ class TheatreAdmin(admin.ModelAdmin):
 class LanguageAdmin(admin.ModelAdmin):
     list_display = ("name",)
 
-admin.site.register(Seat)
+
 admin.site.register(MovieShow)
 admin.site.register(Screening)
 admin.site.register(SeatingCategory)
-admin.site.register(Reservation)
-# admin.site.register(Seat)
 admin.site.register(ReservationType)
 # admin.site.register(Reservation)
 admin.site.register(SeatReserved)

@@ -3,6 +3,7 @@ from datetime import date
 # Create your views here.
 import sys
 from locale import currency
+from rest_framework.views import APIView
 sys.path.append("../")
 from rest_framework import viewsets
 from listmovie.models import *
@@ -75,6 +76,32 @@ class MovieShowViewSet(viewsets.ModelViewSet):
     
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
-    serializer_class = ReservationSerializer    
+    serializer_class = BookedSeatSerializer
+    def get_queryset(self):
+        movie_show_id = self.kwargs.get('movie_show_id')
+        movie_show_date = self.kwargs.get('movie_show_date')
+           
+        if movie_show_id is not None and movie_show_date is not None: 
+            q = Reservation.objects.filter(movie_show_id=movie_show_id, movie_show_date= movie_show_date)
+#             s = SeatSerializer(q)
+#             print(s)
+            print(q.query)
+           
+            return q
+#             print(s)
+#             return Reservation.objects.filter(movie_show_id=movie_show_id, movie_show_date= movie_show_date,).select_related()
+        else:
+            q = Reservation.objects.order_by('movie_show_id')
+#             s = SeatSerializer(q,many=True)
+            print(q)
+            return q 
+#             
+class ReservationView(APIView):
+    def get(self, request, format=None):
+        reservations = Reservation.objects.all()
+        serializer = ReservationSerializer(reservations, many=True)
+        return Response(serializer.data)
+
+   
         
        

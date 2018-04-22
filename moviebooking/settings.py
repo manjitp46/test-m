@@ -24,7 +24,7 @@ SECRET_KEY = 'p)$%$_bud_28z5ara!eg0pdfa+yx8tb9xvmf+es)z7$u)$s4i@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -72,9 +72,13 @@ TEMPLATES = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
-    ]
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ), 'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        
+    ),
 }
 
 WSGI_APPLICATION = 'moviebooking.wsgi.application'
@@ -96,7 +100,7 @@ DATABASES = {
 #         'NAME': 'movie_data',
 #         'USER': 'root',
 #         'PASSWORD': 'root',
-#         'HOST': '192.168.1.21',
+#         'HOST': '192.168.1.24',
 #         'PORT': '3306',
 #     }
 # }

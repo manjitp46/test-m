@@ -34,7 +34,7 @@
             <p class="card-text">{{movie.duration}} hrs</p>
             </div>
              <div class="card-footer">
-                 <a href="{%url 'list_theatre' movie.id city_id%}" class="btn btn-primary">Book Now</a>
+                 <a href="{%url 'list_theatre' movie.id city_id date%}" class="btn btn-primary">Book Now</a>
              </div>
         </div>
             {%endfor%}

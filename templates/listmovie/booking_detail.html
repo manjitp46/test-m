@@ -1,0 +1,67 @@
+{%extends 'base1.html'%}
+{% load staticfiles %}
+{%block content%}
+<div class="container order-summary-container">
+    <div class="container well well-lg continue" style="text-align: center">
+        <h4><b>Order Summary</b></h4>
+    </div>
+    <div class="container well well-lg continue" style="text-align: center">
+        <span>Movie Name: {{movie.name}}</span>
+        <br>
+        <span>Theatre Name: {{theatre.name}} {{theatre.address}}</span>
+    </div>
+    <div class="container well well-lg">
+<table class="table">
+<tbody>
+<tr>
+<td colspan="36"></td>
+<td></td>
+<td>Ticket no {{seats|join:", " }} ({{seats|length}})</td>
+<td>Price is  RS:{{price}}</td>
+</tr>
+<tr>
+<td colspan="36"></td>
+<td></td>
+<td>Internet Handling Charges</td>
+<td>RS:180</td>
+</tr>
+<tr>
+<td colspan="36"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="continue">
+<h3 style="text-align:center">Enter Your details</h3>
+<form method="post" action="{% url 'handle_user_details'%}">
+	{% csrf_token %}
+	<input type="hidden" value="{{price}}"  name='price' id="price">
+  	<input type="hidden" value="{{movie.id}}"  name='movie_id' id="movie_id">
+  	<input type="hidden" value="{{theatre.id}}"  name='theatre_id' id="theatre_id">
+  	<input type="hidden" value="{{movie_show.id}}"  name='movie_show_id' id="theatre_id">
+  	<input type="hidden" value='{{seats|join:","}}'  name='seats' id="seats">
+  	<div class="form-group">
+    <label class="control-label col-sm-2 col-md-2 col-lg-2" for="email">Email:</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2 col-md-2 col-lg-2" for="pwd">Mobile:</label>
+    <div class="col-sm-10"> 
+      <input type="tel" class="form-control" name="mobile" id="pwd" placeholder="Enter Mobile no">
+    </div>
+  </div>
+  <br>
+  <div class="form-group"> 
+    <div class="col-sm-offset-6 col-sm-2 col-md-2 col-lg-2">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+
+</form>
+</div>
+</div>
+</div>
+{%endblock%}

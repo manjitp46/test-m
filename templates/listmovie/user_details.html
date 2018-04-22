@@ -1,0 +1,32 @@
+{%extends 'base1.html'%} {% load staticfiles %} {%block section%}
+<h1>Booking success</h1>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var search = window.location.search;
+	search = search.substring(1);
+	search = search.split("&");
+	var host = "http://localhost:8000"
+	data = {
+			"payment_request_id":search[1].split("=")[1],
+			"payment_id": search[0].split("=")[1]
+		}
+	console.log(data);
+	$.ajax({
+		url: host+"/listmovie/api/update_status",
+		method:'post',
+        data: JSON.stringify(data),
+        dataType: 'json',
+        success: function(data){
+        	console.log(data)
+        },
+        error: function(err) {
+        	console.log(err)
+        }
+	
+	})
+	
+});	
+</script>
+{%endblock%}
