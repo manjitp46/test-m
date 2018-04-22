@@ -7,7 +7,7 @@ $(document).ready(function() {
 	var search = window.location.search;
 	search = search.substring(1);
 	search = search.split("&");
-	var host = "http://localhost:8000"
+	var host = window.location.origin
 	data = {
 			"payment_request_id":search[1].split("=")[1],
 			"payment_id": search[0].split("=")[1]

@@ -94,7 +94,7 @@ def list_seat(request, movie_id, theatre_id,movie_show_id):
 
 @csrf_exempt
 def load_seat(request):
-    input_data = json.loads(request.body)
+    input_data = json.loads(request.body.decode('utf-8'))
     theatre_id = input_data['theatre_id']
     movie_id = input_data['movie_id']
     movie_show_id = input_data['movie_show_id']            
@@ -196,7 +196,7 @@ def get_payment_status(payment_request_id, payment_id):
 
 @csrf_exempt
 def verify_payment(request):
-    input_data = json.loads(request.body)
+    input_data = json.loads(request.body.decode('utf-8'))
     payment_id = input_data['payment_id']
     payment_request_id = input_data['payment_request_id']
     response = get_payment_status(payment_request_id=payment_request_id, payment_id=payment_id)
